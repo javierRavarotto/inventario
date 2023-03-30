@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <div th:replace="nav/nav.html :: css">
+    
+  </div>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+<b th:text="${mensaje}"></b>
+<div class="row gx-0 justify-content-center">	
+  <div th:each="item : ${items}" th:if="${item.alta}" class="card col-2 m-3">
+    <div class="col-12 mt-2">
+     <div  class="row justify-content-center ">  <img  class="col-8" th:src="${item.imagen}" alt=""></div>
+     <div class="text">
+	      <div class="row m-1 text-center">   <b class="col-12 mb-3 " th:text="${item.nombre}"></b></div>
+	      <div class="row m-1"><b class="col-12" th:if="${item.startrack}" >Startrack</b></div>
+	      <div class="row m-1">  <b class="col-12" th:text="${item.calidad}"></b></div>
+      </div>
+      <div class="row m-3 mt-2 justify-content-center boton ">  <a class="col-12 text-center mt-1 " th:href="@{compra/}+${item.idItem}" >Comprar</a></div>
+	</div>
+  </div>
+  </div>
+</body>
+</html>

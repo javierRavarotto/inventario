@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{../css/generales.css}">
+  <div th:replace="nav/nav.html :: css"></div>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+   <button><a href="./crear">Crear Usuario</a> </button>
+     <div  th:each="usuario : ${usuarios}" th:if="${usuario.alta}">
+     	<img  class="col-1 justify-content-center " th:src="${usuario.imagen}" alt="">
+     	<b th:text="${usuario.nombre}"></b>
+     	<div class="row m-2 mt-5">  <a class="col-12" th:href="@{perfil/}+${usuario.idUsuario}" >Perfil</a></div>
+     </div>
+</html>

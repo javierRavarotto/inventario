@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta</title>
+  <div th:replace="nav/nav.html :: css"></div>
+   <link rel="stylesheet" th:href="@{/../css/compra.css}">
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+<div class="row  gx-0 justify-content-center">	
+<div class="card col-2 m-3">
+    <div class="col-12 mt-2">
+      <img  class="col-12 justify-content-center " th:src="${item.imagen}" alt="">
+      <div class="row m-1 text-center">   <b class="col-12 " th:text="${item.nombre}"></b></div>
+      <div class="row m-1"><b class="col-12" th:if="${item.startrack}" >Startrack</b></div>
+      <div class="row m-1">  <b class="col-12" th:text="${item.calidad}"></b></div>
+	</div>
+  </div>
+     <form action="crearVenta"  class=" m-3 col-5 form" method="post">
+		<input type="number" hidden th:value="${compra.idCompra}" name="idCompra">
+		
+		
+		
+		  
+        <div class="row m-2 ">
+		<b  class="col-4">Cantidad comprada</b>
+        <p class="col-4 text-center" type="number" th:text="${compra.cantidad}"></p>
+        </div>
+        <div class="row m-2 ">
+   <b  class="col-3">Cantidad</b>
+        <input  class="col-6" type="number"  name="cantidad">
+        </div>
+   
+        <div class="row m-2 ">
+         <b class="col-3">Precio</b>
+        <input class="col-6" type="float"  name="precio" >
+   
+        </div>
+   
+        <div class="row m-2 ">
+   <b class="col-3">Total de compra</b>
+        <input class="col-6" type="text">
+        </div>
+   
+        <div class="row m-2 ">
+    <b class="col-3">Pagina</b>
+      	 <select  class="col-6" name="pagina" >
+			  <option value="Steam">Steam</option>
+			  <option value="Keydrop">Keydrop</option>
+			  <option value="DMarked">DMarked</option>
+		</select>
+        </div>
+   
+        <div class="row m-2 ">
+   <b  class="col-3">Usuario</b>
+		
+		<select name="idUsuario"  class="col-6"  >
+			  <option   th:each="usuario : ${usuarios}" th:text="${usuario.nombre}" th:value="${usuario.idUsuario}"></option>
+		</select>
+        </div>
+        
+        
+        
+		
+		  <div class="row justify-content-center">
+             <button id="btnSend" type="submit"  class="col-6 m-1" >Crear</button>
+       </div>
+		
+     
+</form>
+ </div>
+</body>
+</html>

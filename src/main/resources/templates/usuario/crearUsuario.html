@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <link rel="stylesheet" th:href="@{/../css/usuario.css}">
+    <title>Document</title>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+    <div>
+        <form action="crearUsuario" method="post" class="col-5  mt-5 contenedor ">
+            <h3 class="text-center">Crear Usuario</h3>
+            <div class="row mt-2 mb-2">
+                <b class="col-3">Nombre</b>
+                <input  class="col-6 " type="text" name="nombre">
+            </div>
+            <div class="row mt-2 mb-2 ">
+                <b class="col-3">Contraseña</b>
+                <input  class="col-6 "type="text" name="contrasena">
+            </div>
+            <div class="row mt-2 mb-2 ">
+                <b class="col-3">Imagen</b>
+                <input  class="col-6"type="text" name="foto">
+            </div>
+            <div class="row mt-2 mb-2 ">
+                <b class="col-3 " >Perfil de Steam</b>
+                <input class="col-6" type="text" name="perfilStema">
+            </div>
+            <div class="row justify-content-center">
+            <button id="btnSend" type="submit" class="col-6">Crear</button>
+       </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{../css/generales.css}">
+  <div th:replace="nav/nav.html :: css"></div>
+     <link rel="stylesheet" th:href="@{/../css/compra.css}">
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+ 
+  <table class="table table-dark mt-3">
+    <thead>
+      <tr>
+        <th class="text-center" scope="col">Imagen</th>
+        <th class="text-center"  scope="col">Cantidad</th>
+        <th class="text-center"  scope="col">Precio</th>
+        <th class="text-center"  scope="col">Total</th>
+       <th class="text-center"  scope="col">Ususario</th>
+       <th class="text-center"  scope="col">Pagina</th>
+       <th class="text-center"  scope="col">Ganacia</th>
+       <th class="text-center"  scope="col">Vender</th>
+ 
+      </tr>
+     
+    </thead>
+     <tbody>
+      <tr th:each="compra : ${compras}" th:if="${compra.alta}">
+       <input class="fechaCampo" th:value=" ${compra.idCompra}" hidden name="id" />
+        <td class="col-1 " th:each="item : ${compra.item}"><img  class="col-12 justify-content-center " th:src="${item.imagen}" alt=""></td>
+          <td class="text-center align-middle " th:text="${compra.cantidad}"></td>
+          <td class="text-center align-middle "th:text="${compra.precio}"></td>
+          <td class="text-center align-middle " th:text="${compra.totalCompra}"></td>
+          <td class="text-center align-middle " th:each="usuario : ${compra.usuario}" th:text="${usuario.nombre}"></td>
+          <td class="text-center align-middle " th:text="${compra.pagina}"></td>
+           <td class="text-center align-middle " th:text="${compra.ganacia}"></td>
+          <td class="text-center align-middle col-2"><a th:href="@{../vender/}+${compra.idCompra}" class="botonVender"> Vender</a></td>
+        
+      </tr>
+      <div class="row">
+       	<b class="col-2 text-end">Ganancia Total:</b>
+       	<b class="col-1 text-start" th:text="${total}"></b>
+       </div>
+      </tbody>
+</html>

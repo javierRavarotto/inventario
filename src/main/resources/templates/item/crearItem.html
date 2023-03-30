@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/../css/compra.css}">
+    <link rel="stylesheet" th:href="@{/../css/item.css}">
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+<body>
+
+<div>
+    <form action="crearItem" class="form col-4 mt-5 contenedor"  method="post">
+    <h3 class="text-center">Crear Item</h3>
+    <div class="row mt-2 mb-2">
+    <b class="col-3">Nombre</b>
+        <input class="col-6" type="text"  name="nombre">
+    </div>
+      <div class="row mt-2 mb-2">
+      <b  class="col-3">Calidad</b>
+      	 <select class="col-6" name="calidad" >
+			  <option value="Factory new">Factory new(Recien Fabricado)</option>
+			  <option value="Minimal wear">Minimal wear(Casi Nuevo)</option>
+			  <option value="Field-Tested">Field-Tested(Algo Desgastaro)</option>
+			  <option value="Well-Worm">Well-Worm(Bastante Desgastado)</option>
+			  <option value="battle-Scarred">battle-Scarred(Deplorable)</option>
+			  <option value="">No</option>
+		 </select>
+      </div>
+        <div class="row mt-2 mb-2">
+        	<b class="col-3">Imagen URL</b>
+        <input class="col-6" type="text"  name="foto">
+        </div>
+          <div class="row mt-2 mb-2">
+                <b class="col-3">Startrack</b>
+        <input class="col-1" type="checkbox"  name="startrack" >
+          </div>
+               <div class="row justify-content-center">
+            <button id="btnSend" type="submit"  class="col-6" >Crear</button>
+       </div>
+ 
+</form>
+</div>
+</body>
+</html>
