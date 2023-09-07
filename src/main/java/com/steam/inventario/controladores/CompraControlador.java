@@ -47,15 +47,21 @@ public class CompraControlador {
 	@Autowired
 	CompraServicio compraServicio;
 	
+		
 	@ModelAttribute
 	public void addAttributes(Model modelo) {
 		List<Compra> listaCompra = compraRepositorio.findAll();
 		Float total=(float) 0;
+		Float totalGastado=(float) 0;
 		for(Compra compra :listaCompra) {
 		    total = compra.getGanacia() + total;
+		    totalGastado= compra.getTotalCompra()+totalGastado;
+		 
 		    }
 		String totalDecimal = String.format("%.2f", total);
+		String totalDecimalGastado = String.format("%.2f", totalGastado);
 		modelo.addAttribute("total", totalDecimal);
+		modelo.addAttribute("totalGastado", totalDecimalGastado);
 		modelo.addAttribute("compras", listaCompra);
 	}
 	
